@@ -1,0 +1,3 @@
+dist
+build
+PyInstaller==3.4
