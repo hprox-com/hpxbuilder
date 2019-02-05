@@ -1,7 +1,5 @@
 from setuptools import setup
 from hpxbuilder import utils
-import os
-
 
 def process():
     import sys
@@ -13,7 +11,8 @@ def process():
         'resources': [
             utils.get_hprox_media_dir_path(),
             utils.get_hprox_templates_dir_path()],
-        'iconfile': utils.get_app_icon_path()
+        'iconfile': utils.get_app_icon_path(),
+        'plist': {'CFBundleIconFile': 'icon.icns'},
     }
 
     setup(
