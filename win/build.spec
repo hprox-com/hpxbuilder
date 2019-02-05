@@ -11,7 +11,7 @@ block_cipher = None
 a = Analysis([utils.get_hprox_exec_path()],
              binaries=[],
              datas=[
-                (utils.get_hprox_templates_dir_path(), "tamplates"),
+                (utils.get_hprox_templates_dir_path(), "templates"),
                 (utils.get_hprox_media_dir_path(), "media"),
              ],
              hiddenimports=[],
