@@ -3,16 +3,16 @@
 import os
 import sys
 
+from hpxbuilder import utils
 
 block_cipher = None
 
 
-a = Analysis(['hproxy.py'],
+a = Analysis([utils.get_hprox_exec_path()],
              binaries=[],
              datas=[
-                ('templates', 'hpxqt/templates'),
-                ('media', 'hpxqt/media'),
-                ('certs', 'hpxqt/certs'),
+                (utils.get_hprox_templates_dir_path(), "tamplates"),
+                (utils.get_hprox_media_dir_path(), "media"),
              ],
              hiddenimports=[],
              hookspath=[],
@@ -38,4 +38,4 @@ exe = EXE(pyz,
           upx=True,
           runtime_tmpdir=None,
           console=False,
-          icon=os.path.join('hpxqt', 'media', 'images', 'Desktop_icon.ico'))
+          icon=os.path.join(utils.get_hprox_media_dir_path(), 'images', 'Desktop_icon.ico'))

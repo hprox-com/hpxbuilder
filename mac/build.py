@@ -2,6 +2,7 @@ from setuptools import setup
 from hpxbuilder import utils
 import os
 
+
 def process():
     import sys
     sys.argv.append("py2app")

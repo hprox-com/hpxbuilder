@@ -3,6 +3,10 @@ import os
 import inspect
 
 
+def get_builder_base():
+    return os.path.dirname(__file__)
+
+
 def get_hpqt_dir():
     return os.path.dirname(inspect.getfile(hpxqt))
 
