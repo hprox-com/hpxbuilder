@@ -38,4 +38,4 @@ exe = EXE(pyz,
           upx=True,
           runtime_tmpdir=None,
           console=False,
-          icon=os.path.join(utils.get_hprox_media_dir_path(), 'images', 'Desktop_icon.ico'))
+          icon=utils.get_app_icon_path())

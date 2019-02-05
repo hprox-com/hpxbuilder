@@ -21,3 +21,7 @@ def get_hprox_media_dir_path():
 
 def get_hprox_templates_dir_path():
     return os.path.join(get_hpqt_dir(), "templates")
+
+
+def get_app_icon_path():
+    return os.path.join(get_builder_base(), 'icons', 'icon.icns')

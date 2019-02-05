@@ -13,7 +13,7 @@ def process():
         'resources': [
             utils.get_hprox_media_dir_path(),
             utils.get_hprox_templates_dir_path()],
-        'iconfile': os.path.join(utils.get_hprox_media_dir_path(), "images", "Desktop_icon.icns")
+        'iconfile': utils.get_app_icon_path()
     }
 
     setup(
