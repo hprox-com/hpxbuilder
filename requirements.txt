@@ -1,2 +1,2 @@
-
 PyInstaller==3.4
+sip==4.19.8
