@@ -1,3 +1,5 @@
+import platform
+
 import hpxqt
 import os
 import inspect
@@ -12,7 +14,7 @@ def get_hpqt_dir():
 
 
 def get_hprox_exec_path():
-    return os.path.join(get_hpqt_dir(), "hproxy.py")
+    return os.path.join(get_hpqt_dir(), "hprox.py")
 
 
 def get_hprox_media_dir_path():
@@ -24,4 +26,10 @@ def get_hprox_templates_dir_path():
 
 
 def get_app_icon_path():
-    return os.path.join(get_builder_base(), 'icons', 'icon.icns')
+    _os = platform.system().lower()
+    icons_map = {
+        'darwin': 'icon.icns',
+        'windows': 'icon.ico',
+        'linux': 'icon.png'
+    }
+    return os.path.join(get_builder_base(), 'icons', icons_map[_os])
