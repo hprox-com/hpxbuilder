@@ -1,4 +1,9 @@
+import os
 from sys import platform as _platform
+
+from PyQt5.pyrcc_main import processResourceFile
+
+from hpxbuilder import utils as hpxbuilder_utils
 
 
 def build_p2app():
@@ -11,7 +16,17 @@ def build_pyinstaller():
     build.process()
 
 
+def compile_imgs():
+    media_dir = hpxbuilder_utils.get_hprox_media_dir_path()
+    hprox_dir = hpxbuilder_utils.get_hpqt_dir()
+    qrc_files = [os.path.join(media_dir, 'images', 'images.qrc')]
+    hpximg_file = os.path.join(hprox_dir, 'hpximg.py')
+
+    processResourceFile(qrc_files, hpximg_file, False)
+
+
 if __name__ == "__main__":
+    compile_imgs()
     if _platform == "darwin":
         build_p2app()
     else:
