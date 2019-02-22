@@ -16,7 +16,7 @@ def compress_app():
             root = os.path.abspath(root)
             for f in files:
                 src_path = os.path.join(root, f)
-                arcname = os.path.join(src_path.split('dist/')[1])
+                arcname = src_path.split('dist/')[1]
                 zf.write(src_path, arcname)
                 print('Compressing %s' % os.path.join(root, f))
 
