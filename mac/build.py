@@ -1,5 +1,21 @@
+import os
+import zipfile
+
 from setuptools import setup
 from hpxbuilder import utils
+
+
+def compress_app():
+    app_dir = os.path.join(utils.get_dist_dir(), 'hprox.app')
+    compressed_fpath = os.path.join(utils.get_dist_dir(), '%s.zip' % utils.get_compressed_name())
+
+    with zipfile.ZipFile(compressed_fpath, 'w', zipfile.ZIP_DEFLATED) as zf:
+        for root, dirs, files in os.walk(app_dir):
+            for f in files:
+                src_path = os.path.join(root, f)
+                arcname = os.path.join(src_path.split('dist/')[1])
+                zf.write(src_path, arcname)
+                print('Compressing %s' % os.path.join(root, f))
 
 
 def process():
@@ -22,6 +38,8 @@ def process():
         options={'py2app': OPTIONS},
         setup_requires=['py2app'],
     )
+
+    compress_app()
 
 
 if __name__ == "__main__":

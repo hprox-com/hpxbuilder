@@ -12,13 +12,14 @@ def compress_app():
     if platform.system().lower() == 'windows':
         return
 
-    dist_dir = os.path.join(utils.get_dist_dir(), 'dist')
     compressed_name = utils.get_compressed_name()
-    compressed_fpath = os.path.join(dist_dir, '%s.tar.gz' % compressed_name)
+    compressed_fpath = os.path.join(utils.get_dist_dir(),
+                                    '%s.tar.gz' % compressed_name)
 
     with tarfile.open(compressed_fpath, 'w:gz') as tar:
+        src_path = os.path.join(utils.get_dist_dir(), utils.get_exec_name())
         arcname = os.path.join(compressed_name, 'bin',  utils.get_exec_name())
-        tar.add(os.path.join(dist_dir, utils.get_exec_name()), arcname=arcname)
+        tar.add(src_path, arcname)
 
 
 def process():

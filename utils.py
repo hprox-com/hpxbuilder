@@ -10,7 +10,7 @@ def get_builder_base():
 
 
 def get_dist_dir():
-    return os.path.dirname(get_builder_base())
+    return os.path.join(os.path.dirname(get_builder_base()), 'dist')
 
 
 def get_hpxqt_version():
