@@ -7,7 +7,7 @@ from hpxbuilder import utils
 
 def compress_app():
     app_dir = os.path.join(utils.get_dist_dir(),
-                           '%.app' % utils.get_exec_name())
+                           '%s.app' % utils.get_exec_name())
     compressed_fpath = os.path.join(utils.get_dist_dir(),
                                     '%s.zip' % utils.get_compressed_name())
 
